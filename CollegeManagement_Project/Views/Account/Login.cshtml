@@ -1,0 +1,13 @@
+@{ ViewData["Title"] = "Авторизация"; }
+<div class="form-card narrow">
+    <h1>Вход в систему</h1>
+    <p class="muted">Демонстрационная учётная запись администратора</p>
+    @if (ViewBag.Error != null) { <p class="error">@ViewBag.Error</p> }
+    <form method="post" asp-action="Login">
+        @Html.AntiForgeryToken()
+        <label>Логин<input name="login" required autocomplete="username" /></label>
+        <label>Пароль<input name="password" type="password" required autocomplete="current-password" /></label>
+        <button class="button" type="submit">Войти</button>
+    </form>
+    <p class="hint">Логин: <b>admin</b> · Пароль: <b>12345</b></p>
+</div>

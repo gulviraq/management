@@ -1,0 +1,15 @@
+@model List<(int StudentId, DateTime Date, bool Present)>
+@using CollegeManagement.Services
+@inject CollegeRepository Db
+@{ ViewData["Title"] = "Посещаемость"; }
+<h1>Посещаемость</h1>
+<div class="notice">@ViewBag.Stats</div>
+<div class="form-card inline-form"><form method="post" asp-action="Create">
+    @Html.AntiForgeryToken()
+    <label>Студент<select name="studentId">@foreach (var s in Db.Students) { <option value="@s.StudentId">@s.Name @s.Surname</option> }</select></label>
+    <label>Статус<select name="present"><option value="true">Присутствовал</option><option value="false">Отсутствовал</option></select></label>
+    <button class="button" type="submit">Добавить отметку за сегодня</button>
+</form></div>
+<div class="table-wrap"><table><thead><tr><th>ID студента</th><th>Дата</th><th>Статус</th></tr></thead><tbody>
+@foreach (var a in Model) { <tr><td>@a.StudentId</td><td>@a.Date.ToString("dd.MM.yyyy")</td><td>@(a.Present ? "Присутствовал" : "Отсутствовал")</td></tr> }
+</tbody></table></div>

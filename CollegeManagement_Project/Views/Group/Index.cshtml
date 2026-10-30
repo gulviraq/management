@@ -1,0 +1,9 @@
+@model IEnumerable<Group>
+@{ ViewData["Title"] = "Учебные группы"; }
+<h1>Учебные группы</h1>
+<div class="cards">
+@foreach (var g in Model) {
+    <div class="card"><p class="eyebrow">КУРС @g.Course</p><h3>@g.Name</h3><p>Студентов: @g.Students.Count</p>
+    <ul>@foreach (var s in g.Students) { <li>@s.Name @s.Surname</li> }</ul></div>
+}
+</div>

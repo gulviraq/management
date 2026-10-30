@@ -1,0 +1,14 @@
+@{ ViewData["Title"] = "Добавить студента"; }
+<div class="form-card">
+    <h1>Новый студент</h1>
+    @if (ViewBag.Error != null) { <p class="error">@ViewBag.Error</p> }
+    <form method="post" asp-action="Create">
+        @Html.AntiForgeryToken()
+        <label>Имя<input name="name" required /></label>
+        <label>Фамилия<input name="surname" required /></label>
+        <label>Возраст<input name="age" type="number" min="15" max="70" required /></label>
+        <label>Группа<input name="group" required placeholder="Например, 2ПО-325" /></label>
+        <button class="button" type="submit">Сохранить</button>
+        <a class="text-link" asp-action="Index">Назад к списку</a>
+    </form>
+</div>

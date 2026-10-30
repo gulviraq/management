@@ -1,0 +1,6 @@
+@model IEnumerable<Teacher>
+@{ ViewData["Title"] = "Преподаватели"; }
+<h1>Преподаватели</h1>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Имя</th><th>Фамилия</th><th>Предмет</th><th>Стаж</th></tr></thead><tbody>
+@foreach (var t in Model) { <tr><td>@t.Id</td><td>@t.Name</td><td>@t.Surname</td><td>@t.Subject</td><td>@t.Experience лет</td></tr> }
+</tbody></table></div>

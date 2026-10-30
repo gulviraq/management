@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CollegeManagement</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<header>
+    <a class="brand" asp-controller="Home" asp-action="Index">CollegeManagement</a>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Главная</a>
+        <a asp-controller="Student" asp-action="Index">Студенты</a>
+        <a asp-controller="Teacher" asp-action="Index">Преподаватели</a>
+        <a asp-controller="Group" asp-action="Index">Группы</a>
+        <a asp-controller="Grade" asp-action="Index">Оценки</a>
+        <a asp-controller="Attendance" asp-action="Index">Посещаемость</a>
+        <a asp-controller="Account" asp-action="Login">Вход</a>
+    </nav>
+</header>
+<main class="container">
+    @RenderBody()
+</main>
+<footer>CollegeManagement · Учебный демонстрационный проект</footer>
+</body>
+</html>

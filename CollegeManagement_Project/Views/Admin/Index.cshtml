@@ -1,0 +1,9 @@
+@{ ViewData["Title"] = "Административная панель"; }
+<h1>Административная панель</h1>
+<p>Вы вошли как администратор. Здесь собраны основные разделы управления колледжем.</p>
+<div class="cards">
+    <a class="card" asp-controller="Student" asp-action="Index"><h3>Управление студентами</h3><p>Просмотр и редактирование списка.</p></a>
+    <a class="card" asp-controller="Teacher" asp-action="Index"><h3>Преподаватели</h3><p>Сведения о преподавателях.</p></a>
+    <a class="card" asp-controller="Grade" asp-action="Index"><h3>Журнал оценок</h3><p>Контроль успеваемости.</p></a>
+</div>
+<a class="button secondary" asp-controller="Account" asp-action="Logout">Выйти</a>

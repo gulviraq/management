@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Главная";
+}
+<section class="hero">
+    <p class="eyebrow">СИСТЕМА УПРАВЛЕНИЯ КОЛЛЕДЖЕМ</p>
+    <h1>Добро пожаловать в CollegeManagement</h1>
+    <p>Единое пространство для управления студентами, преподавателями, группами, оценками и посещаемостью.</p>
+    <a class="button" asp-controller="Student" asp-action="Index">Открыть список студентов</a>
+</section>
+<div class="stats">
+    <div class="stat"><strong>@ViewBag.Students</strong><span>Студентов</span></div>
+    <div class="stat"><strong>@ViewBag.Teachers</strong><span>Преподавателей</span></div>
+    <div class="stat"><strong>@ViewBag.Groups</strong><span>Учебных групп</span></div>
+    <div class="stat"><strong>@ViewBag.Grades</strong><span>Оценок в журнале</span></div>
+</div>
+<div class="cards">
+    <a class="card" asp-controller="Student" asp-action="Index"><h3>Студенты</h3><p>Список, добавление и удаление записей.</p></a>
+    <a class="card" asp-controller="Teacher" asp-action="Index"><h3>Преподаватели</h3><p>Предметы и педагогический стаж.</p></a>
+    <a class="card" asp-controller="Group" asp-action="Index"><h3>Учебные группы</h3><p>Состав групп и курсы обучения.</p></a>
+    <a class="card" asp-controller="Grade" asp-action="Index"><h3>Электронный журнал</h3><p>Оценки от 2 до 5.</p></a>
+    <a class="card" asp-controller="Attendance" asp-action="Index"><h3>Посещаемость</h3><p>Отметки присутствия студентов.</p></a>
+    <a class="card" asp-controller="Admin" asp-action="Index"><h3>Администрирование</h3><p>Вход в административную панель.</p></a>
+</div>

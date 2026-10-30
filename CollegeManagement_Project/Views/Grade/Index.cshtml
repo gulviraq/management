@@ -1,0 +1,17 @@
+@model IReadOnlyList<Grade>
+@using CollegeManagement.Services
+@inject CollegeRepository Db
+@{ ViewData["Title"] = "Электронный журнал"; }
+<h1>Электронный журнал оценок</h1>
+<div class="form-card inline-form">
+<form method="post" asp-action="Create">
+    @Html.AntiForgeryToken()
+    <label>Студент<select name="studentId">@foreach (var s in Db.Students) { <option value="@s.StudentId">@s.Name @s.Surname</option> }</select></label>
+    <label>Предмет<input name="subject" required value="Программирование" /></label>
+    <label>Оценка<select name="value"><option>5</option><option>4</option><option>3</option><option>2</option></select></label>
+    <button class="button" type="submit">Добавить оценку</button>
+</form>
+</div>
+<div class="table-wrap"><table><thead><tr><th>Студент</th><th>Предмет</th><th>Оценка</th><th>Дата</th><th></th></tr></thead><tbody>
+@for (var i = 0; i < Model.Count; i++) { <tr><td>@Model[i].StudentName</td><td>@Model[i].Subject</td><td><span class="grade">@Model[i].Value</span></td><td>@Model[i].Date.ToString("dd.MM.yyyy")</td><td><a class="danger-link" asp-action="Delete" asp-route-index="@i">Удалить</a></td></tr> }
+</tbody></table></div>
